@@ -9,6 +9,6 @@ def print_all_keys(to_print):
         print('key:', key, 'value:', to_print[key])
 
 
-def format_number(number):
+def format_currency(number):
     # return format_decimal(number, locale='he_IL')
     return f"{number:,.2f}{NIS}"
