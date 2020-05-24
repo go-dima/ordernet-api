@@ -16,9 +16,8 @@ class SparkClient:
         self.authorization = f"Bearer {json_response['l']}"
 
     def get_account(self):
-        response = requests.get(urls.static_data_url, headers={"Authorization": self.authorization})
-        response_data = json.loads(response.text)
-        all_data = list(filter(lambda data: data['b'] == 'ACC', response_data))
+        response_json = self.get(urls.static_data_url)
+        all_data = list(filter(lambda data: data['b'] == 'ACC', response_json))
         account_data = all_data[0]['a'][0]  # Keys: ['_t' type, '_k' key, 'a' address?, 'b' bank?, 'c' not sure]
 
         account_key = account_data['_k']
@@ -27,8 +26,10 @@ class SparkClient:
         return Account(account_key, account_number, account_owner)
 
     def get_balance(self, accountKey):
-        response = requests.get(urls.balance_url + accountKey, headers={"Authorization": self.authorization})
-        response_data = json.loads(response.text)
-        print(f"Portfolio value: {format_currency(response_data['a']['o'])}")
-        print(f"Remaining cash: {format_currency(response_data['a']['a'])}")
-        return response_data
+        response_json = self.get(urls.balance_url + accountKey)
+        print(f"Portfolio value: {format_currency(response_json['a']['o'])}")
+        print(f"Remaining cash: {format_currency(response_json['a']['a'])}")
+
+    def get(self, url):
+        response = requests.get(url, headers={"Authorization": self.authorization})
+        return json.loads(response.text)

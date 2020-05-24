@@ -8,5 +8,4 @@ if __name__ == "__main__":
     sparkClient = SparkClient(username, password)
     account = sparkClient.get_account()
     print(account)
-    account_balance = sparkClient.get_balance(account.key)['a']
-    # print_all_keys(account_balance)
+    sparkClient.get_balance(account.key)
