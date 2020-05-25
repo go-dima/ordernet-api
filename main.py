@@ -9,3 +9,6 @@ if __name__ == "__main__":
     account = sparkClient.get_account()
     print(account)
     sparkClient.get_balance(account.key)
+    holdings = sparkClient.get_holdings(account.key)
+    for holding in holdings:
+        print(holding)

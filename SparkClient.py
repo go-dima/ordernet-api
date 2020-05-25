@@ -3,7 +3,8 @@ import json
 import requests
 import urls
 from Account import Account
-from utils import format_currency
+from Holding import Holding
+from utils import format_currency, print_all_keys
 
 
 class SparkClient:
@@ -33,3 +34,8 @@ class SparkClient:
     def get(self, url):
         response = requests.get(url, headers={"Authorization": self.authorization})
         return json.loads(response.text)
+
+    def get_holdings(self, key):
+        response = self.get(urls.holdings_url + key)
+        holdings = [Holding(item) for item in response]
+        return holdings
