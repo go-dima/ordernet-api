@@ -1,10 +1,9 @@
 import json
-
 import requests
 import urls
-from Account import Account
-from Holding import Holding
-from utils import format_currency, print_all_keys
+from data.account import Account
+from data.balance import Balance
+from data.holding import Holding
 
 
 class SparkClient:
@@ -28,8 +27,7 @@ class SparkClient:
 
     def get_balance(self, accountKey):
         response_json = self.get(urls.balance_url + accountKey)
-        print(f"Portfolio value: {format_currency(response_json['a']['o'])}")
-        print(f"Remaining cash: {format_currency(response_json['a']['a'])}")
+        return Balance(response_json['a'])
 
     def get(self, url):
         response = requests.get(url, headers={"Authorization": self.authorization})
