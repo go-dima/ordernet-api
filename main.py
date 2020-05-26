@@ -1,11 +1,29 @@
 import os
 
+from getpass import getpass
+from distlib.compat import raw_input
 from SparkClient import SparkClient
 from utils import format_currency
 
+
+def get_username():
+    user = os.environ.get("spark_username", None)
+    if user is None:
+        user = raw_input("No username configured, Type username: ")
+    return user
+
+
+def get_password():
+    pwd = os.environ.get("spark_password", None)
+    if pwd is None:
+        pwd = getpass("No password configured, Type password: ")
+    return pwd
+
+
 if __name__ == "__main__":
-    username = os.environ.get("spark_username", "Username not found")
-    password = os.environ.get("spark_password", "Password not found")
+    username = get_username()
+    password = get_password()
+
     sparkClient = SparkClient(username, password)
     account = sparkClient.get_account()
     print(account)
