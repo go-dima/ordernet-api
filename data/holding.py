@@ -20,7 +20,7 @@ class Holding(object):
         self.unit_value = record['y']
         self.type = record['cg']
         self.profit = self.current_value - self.original_cost
-        self.profit_percentage = (self.profit / self.original_cost) * 100
+        self.profit_percentage = (self.profit / self.original_cost) * 100 if self.original_cost else 0
 
     def __str__(self):
         return self.en_description.ljust(20) + "\t" + \

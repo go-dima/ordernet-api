@@ -22,6 +22,6 @@ subscribe_url = f"{url}/subscription/subscribe"
 unsubscribe_url = f"{url}/subscription/unsubscribe"
 
 # Personalized
-home_page_url = tab_module_settings_url + "?tmId="
-my_account_url = tab_module_settings_url + "?tmId="
-my_account_balance__tab_url = tab_module_settings_url + "?tmId="
+home_page_url = tab_module_settings_url + "?tmId=iyxnf0"
+my_account_url = tab_module_settings_url + "?tmId=syl5va"
+my_account_balance__tab_url = tab_module_settings_url + "?tmId=ryxb0z"

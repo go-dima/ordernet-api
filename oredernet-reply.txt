@@ -1,0 +1,92 @@
+{
+	"selected": [
+		{
+			"key": "accountNum"
+		},
+		{
+			"key": "accountName"
+		},
+		{
+			"key": "symbol"
+		},
+		{
+			"key": "uniqueStatus"
+		},
+		{
+			"key": "operation"
+		},
+		{
+			"key": "orderAmount"
+		},
+		{
+			"key": "orderPrice"
+		},
+		{
+			"key": "execValue"
+		},
+		{
+			"key": "executionAmount"
+		},
+		{
+			"key": "executionPrice"
+		},
+		{
+			"key": "dealTime"
+		},
+		{
+			"key": "amountLeft"
+		},
+		{
+			"key": "trigger"
+		},
+		{
+			"key": "startDate"
+		},
+		{
+			"key": "endDate"
+		},
+		{
+			"key": "orderTime"
+		},
+		{
+			"key": "bno"
+		},
+		{
+			"key": "currency"
+		},
+		{
+			"key": "orderType"
+		},
+		{
+			"key": "qequenceNum"
+		},
+		{
+			"key": "isCont"
+		},
+		{
+			"key": "iceFirstAmount"
+		},
+		{
+			"key": "iceFractionAmount"
+		},
+		{
+			"key": "iceVisibleAmount"
+		},
+		{
+			"key": "rezefOrederNum"
+		},
+		{
+			"key": "error"
+		},
+		{
+			"key": "owner"
+		}
+	],
+	"pinned": [
+		{
+			"key": "stockName",
+			"width": 175
+		}
+	],
+	"selectedView": "overall"
+}
