@@ -1,7 +1,9 @@
 import os
-
+from functools import reduce
 from getpass import getpass
+
 from distlib.compat import raw_input
+
 from SparkClient import SparkClient
 from utils import format_currency
 
@@ -26,10 +28,14 @@ if __name__ == "__main__":
 
     sparkClient = SparkClient(username, password)
     account = sparkClient.get_account()
-    print(account)
     balance = sparkClient.get_balance(account.key)
-    print(f"Portfolio value: {format_currency(balance.portfolio_value)}")
-    print(f"Remaining cash: {format_currency(balance.remaining_cash)}")
     holdings = sparkClient.get_holdings(account.key)
+
+    print(account)
+    print(f"Portfolio value: {format_currency(balance.portfolio_value)}")
+    print(f"Holdings value: {format_currency(reduce(lambda a, b: a+b, map(lambda a: a.current_value, holdings)))}")
+    print(f"Accumulative profit: {format_currency(reduce(lambda a, b: a + b, map(lambda a: a.profit, holdings)))}")
+    print(f"Remaining cash: {format_currency(balance.remaining_cash)}")
+
     for holding in holdings:
         print(holding)
