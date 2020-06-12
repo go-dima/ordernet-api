@@ -1,11 +1,10 @@
 import os
-from functools import reduce
 from getpass import getpass
 
 from distlib.compat import raw_input
 
 from SparkClient import SparkClient
-from utils import format_currency
+from utils import accumulate, print_currency, red_green_color
 
 
 def get_username():
@@ -32,10 +31,11 @@ if __name__ == "__main__":
     holdings = sparkClient.get_holdings(account.key)
 
     print(account)
-    print(f"Portfolio value: {format_currency(balance.portfolio_value)}")
-    print(f"Holdings value: {format_currency(reduce(lambda a, b: a+b, map(lambda a: a.current_value, holdings)))}")
-    print(f"Accumulative profit: {format_currency(reduce(lambda a, b: a + b, map(lambda a: a.profit, holdings)))}")
-    print(f"Remaining cash: {format_currency(balance.remaining_cash)}")
+    print_currency(prefix="Portfolio value", value=balance.portfolio_value)
+    print_currency(prefix="Holdings value", value=accumulate(holdings, lambda a: a.current_value))
+    print_currency(prefix="Accumulative profit", value=accumulate(holdings, lambda a: a.profit), text_format=red_green_color)
+    print_currency(prefix="Remaining cash", value=balance.remaining_cash)
 
     for holding in holdings:
         print(holding)
+

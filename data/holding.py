@@ -1,11 +1,4 @@
-from utils import format_currency
-from colorama import Fore, Style
-
-
-def color_rg(param):
-    if param[0] == '-':
-        return Fore.RED + param + Style.RESET_ALL
-    return Fore.GREEN + param + Style.RESET_ALL
+from utils import format_currency, red_green_color
 
 
 class Holding(object):
@@ -26,8 +19,8 @@ class Holding(object):
         return self.en_description.ljust(20) + "\t" + \
                str(self.amount).ljust(15) + "\t" + \
                format_currency(self.current_value).ljust(15) + "\t" + \
-               color_rg(format_currency(self.profit).ljust(15)) + "\t" + \
-               color_rg(f"{self.profit_percentage:.2f}%")
+               red_green_color(format_currency(self.profit).ljust(15)) + "\t" + \
+               red_green_color(f"{self.profit_percentage:.2f}%")
 #
 # c - Number (Symbol)		מספר נייר
 # bd - Amount				כמות נוכחית
