@@ -4,7 +4,7 @@ setup(
     name='ordernet-api',
     version='0.0.1',
     packages=find_packages(include='ordernet-api*'),
-    description='TODO',
+    description='Client to perform queries from spark system',
     install_requires=[
         'colorama',
         'requests',
@@ -13,6 +13,6 @@ setup(
         'filelock==3.0.12',
         'six==1.14.0'
     ],
-    license='LICENSE',
+    license='GNU LESSER GENERAL PUBLIC LICENSE',
     python_requires='>=3.6'
 )
