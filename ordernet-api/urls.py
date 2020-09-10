@@ -15,7 +15,8 @@ user_personalization_url = f"{url}/UserPersonalization"
 get_status_url = f"{user_personalization_url}/GetStatus"
 tab_module_settings_url = f"{user_personalization_url}/UpdateTabModuleSetting"
 transactions_url = f"{url}/GetAccountTransactions"
-personal_url = Template(f"{transactions_url}?accountKey=$account&endDate=$untilT00:00:00.000Z&startDate=$fromT00:00:00.000Z")
+personal_url = (
+    Template(f"{transactions_url}?accountKey=$account&endDate=$untilT00:00:00.000Z&startDate=$fromT00:00:00.000Z"))
 
 # Subscribe
 subscribe_url = f"{url}/subscription/subscribe"
