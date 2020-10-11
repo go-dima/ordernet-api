@@ -38,4 +38,3 @@ if __name__ == "__main__":
 
     for holding in holdings:
         print(holding)
-
