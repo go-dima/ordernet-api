@@ -33,8 +33,7 @@ if __name__ == "__main__":
     print(account)
     print_currency(prefix="Portfolio value", value=balance.portfolio_value)
     print_currency(prefix="Holdings value", value=accumulate(holdings, lambda a: a.current_value))
-    print_currency(prefix="Accumulative profit", value=accumulate(holdings, lambda a: a.profit),
-                   text_format=red_green_color)
+    print_currency(prefix="Accumulative profit", value=accumulate(holdings, lambda a: a.profit), text_format=red_green_color)
     print_currency(prefix="Remaining cash", value=balance.remaining_cash)
 
     for holding in holdings:
